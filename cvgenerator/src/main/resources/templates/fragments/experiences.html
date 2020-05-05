@@ -1,0 +1,77 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+
+</head>
+<body>
+<div th:fragment="experiences">
+    <a href="" data-toggle="modal" data-target="#experienceModal">Ajouter experience</a>
+    <div class="card">
+        <div class="card-header">
+            Experiences
+        </div>
+        <div class="card-body">
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="experienceModal" tabindex="-1" role="dialog" aria-labelledby="uvModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ajouter expérience</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form th:object="${experienceForm}" id="experienceform">
+                        <div class="form-group">
+                            <label for="entreprise">Entreprise</label>
+                            <input id="entreprise" class="form-control mr-sm-2" type="text" placeholder="Entreprise" aria-label="Entreprise" th:field="*{nomEntreprise}" required="required">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="debut">Début</label>
+                                <input id="debut" class="form-control mr-sm-2" type="date" aria-label="Date début" th:field="*{dateDebut}" required="required">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="fin">Fin</label>
+                                <input id="fin" class="form-control mr-sm-2" type="date" aria-label="Date fin" th:field="*{dateFin}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <textarea id="description" th:field="*{description}" cols="90"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-offset-2 col-lg-7">
+                                <button type="button" class="btn btn-primary" id="submitExperience" form="experienceform">Ajouter</button>
+                            </div>
+                        </div>
+                        <script type="text/javascript">
+                            $('#submitExperience').on('click', function () {
+
+                                var param = {
+                                    societe : document.getElementById("entreprise").value,
+                                    debut : document.getElementById("debut").value,
+                                    fin : document.getElementById("fin").value,
+                                    description : document.getElementById("description").value
+                                };
+
+                                $.post("addExperience", param)
+                                    .done(function () {
+                                        console.log("merci");
+                                    });
+                                return false;
+                            });
+                        </script>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

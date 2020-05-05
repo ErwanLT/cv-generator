@@ -1,0 +1,60 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>CV-GEN</title>
+    <div th:replace="fragments/header :: header-css"/>
+</head>
+<body>
+<div th:replace="fragments/header :: header"/>
+<main>
+    <br>
+    <div class="container-fluid">
+        <form method="post" th:action="@{/addExp}" th:object="${experienceForm}">
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-header">
+                            Experience
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="entreprise">Entreprise</label>
+                                <input id="entreprise" class="form-control mr-sm-2" type="text" placeholder="Entreprise" aria-label="Entreprise" th:field="*{nomEntreprise}" required="required">
+                            </div>
+                            <div class="form-group">
+                                <label for="poste">Poste</label>
+                                <input id="poste" class="form-control mr-sm-2" type="text" placeholder="Poste" aria-label="Poste" th:field="*{poste}" required="required">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="debut">Début</label>
+                                    <input id="debut" class="form-control mr-sm-2" type="date" aria-label="Date début" th:field="*{dateDebut}" required="required">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="fin">Fin</label>
+                                    <input id="fin" class="form-control mr-sm-2" type="date" aria-label="Date fin" th:field="*{dateFin}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Description</label>
+                                <textarea class="form-control" id="description" rows="3" th:field="*{description}"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="competences">Compétences</label>
+                                <input id="competences" class="form-control mr-sm-2" type="text" placeholder="Competence" aria-label="Poste" th:field="*{competences}" aria-describedby="competencesHelpBlock">
+                                <small id="competencesHelpBlock" class="form-text text-muted">
+                                    Attention ! Il faut séparer chaque comptences par un ",".
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <button class="btn btn-primary" type="submit">ajouter</button>
+        </form>
+    </div>
+</main>
+</body>
+</html>

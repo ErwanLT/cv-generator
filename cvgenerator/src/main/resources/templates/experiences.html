@@ -1,0 +1,92 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>CV-GEN</title>
+    <div th:replace="fragments/header :: header-css"/>
+</head>
+<body>
+<div th:replace="fragments/header :: header"/>
+
+<main>
+    <br>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-11"></div>
+            <div class="col-md-1">
+                <a th:href="@{/addExperience}">
+                    <img th:src="@{'./img/add.svg'}" style="height: 30px;"/>
+                </a>
+
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header">
+                        Experiences
+                    </div>
+                    <div class="card-body">
+                        <div th:each="experience : ${cv.experiences}">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col">
+                                                <span>Sociétée :</span>
+                                                <comment th:text="${experience.nomEntreprise}" />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <span>Poste :</span>
+                                                <comment th:text="${experience.poste}" />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <span>Du :</span>
+                                                <comment th:text="${experience.dateDebut}" />
+                                            </div>
+                                            <div class="col">
+                                                <span>Au :</span>
+                                                <comment th:text="${experience.dateFin}" />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <span>Description :</span>
+                                                <comment th:text="${experience.description}" />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <span> Compétences :</span>
+                                                <div class="row">
+                                                    <div th:each="competence : ${experience.competences}">
+                                                        <span class="badge badge-primary">
+                                                            <comment th:text="${competence}"/>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <a th:href="@{/genererCV}">
+            <button class="btn btn-primary" type="button">Suivant</button>
+        </a>
+    </div>
+</main>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto+Mono:300,500");
+
+body, html {
+    height: 100%;
+    margin: 0;
+    color:#ffffff;
+    font-family: "Roboto Mono", "Liberation Mono", Consolas, monospace;
+    font-size:12pt;
+    text-align:center;
+}
+
+.bg {
+    /* The image used */
+    background:url(../img/space.jpg) no-repeat center;
+
+    /* Full height */
+    height: 100%;
+
+    background-size: cover;
+}
+
+.center{
+    position: fixed; /* or absolute */
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+}
+
+.big{
+    font-size:40pt;
+}

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:fragment="header-css">
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <link href="./img/favicon.ico" rel="icon" type="image/x-icon" />
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="./css/fontawesome/all.css">
+        <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" href="./css/bootstrap/bootstrap.css">
+        <link rel="stylesheet" href="./css/bootstrap/bootstrap-grid.css">
+        <link rel="stylesheet" href="./css/bootstrap/bootstrap-reboot.css">
+        <!-- font awesome css -->
+        <link rel="stylesheet" href="./css/fontawesome/all.css" />
+
+        <link src="./css/cvgen.css"/>
+
+        <!-- Optional JavaScript -->
+        <!-- JQuery -->
+        <script src="./js/jquery.js"></script>
+        <!-- Bootstrap tooltips -->
+        <script src="./js/popper.js"></script>
+        <!-- Bootstrap core JavaScript -->
+        <script src="./js/bootstrap/bootstrap.js"></script>
+        <script src="./js/bootstrap/bootstrap.bundle.js"></script>
+        <!-- font awesome JavaScript-->
+        <script src="./js/fontawesome/all.js"></script>
+
+        <script src="./js/cvgen.js"></script>
+
+    </div>
+</head>
+<body>
+<div th:fragment="header">
+    <header>
+        <!--Navbar-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <!-- Additional container -->
+            <div class="container-fluid">
+                <!-- Navbar brand -->
+                <a class="navbar-brand" th:href="@{/}">CV-GEN <comment class="version" th:text="${version}" /></a>
+            </div>
+            <!-- Additional container -->
+        </nav>
+        <!--/.Navbar-->
+    </header>
+</div>
+
+</body>
+</html>

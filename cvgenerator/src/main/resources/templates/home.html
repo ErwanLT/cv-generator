@@ -1,0 +1,61 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>CV-GEN</title>
+    <div th:replace="fragments/header :: header-css"/>
+</head>
+<body>
+<div th:replace="fragments/header :: header"/>
+<main>
+    <br>
+    <div class="container-fluid">
+        <form method="post" th:action="@{/experiences}" th:object="${coordonneesForm}">
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-header">
+                            Coordonnées
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="nom">Nom</label>
+                                <input id="nom" class="form-control mr-sm-2" type="text" placeholder="Nom de Famille" aria-label="Nom de Famille" th:field="*{nomFamille}" required="required">
+                            </div>
+                            <div class="form-group">
+                                <label for="prenom">Prenom</label>
+                                <input id="prenom" class="form-control mr-sm-2" type="text" placeholder="Prenom" aria-label="Nom" th:field="*{prenom}" required="required">
+                            </div>
+                            <div class="form-group">
+                                <label for="rue">Rue</label>
+                                <input id="rue" class="form-control mr-sm-2" type="text" placeholder="Rue" aria-label="Rue" th:field="*{adresse.rue}" required="required">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <label for="codePostal">Code Postal</label>
+                                    <input id="codePostal" class="form-control mr-sm-2" type="text" placeholder="Code Postal" aria-label="Code Postal" th:field="*{adresse.codePostal}" required="required">
+                                </div>
+                                <div class="form-group col-md-8">
+                                    <label for="ville">Ville</label>
+                                    <input id="ville" class="form-control mr-sm-2" type="text" placeholder="ville" aria-label="Ville" th:field="*{adresse.ville}" required="required">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="telephone">Telephone</label>
+                                <input id="telephone" class="form-control mr-sm-2" type="tel" pattern="[0-9]{10}" placeholder="Telephone" aria-label="Telephone" th:field="*{numeroTelephone}" required="required">
+                            </div>
+                            <div class="form-group">
+                                <label for="mail">Mail</label>
+                                <input id="mail" class="form-control mr-sm-2" type="email" placeholder="Email" aria-label="Email" th:field="*{email}" required="required">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <button class="btn btn-primary" type="submit">Suivant</button>
+        </form>
+    </div>
+</main>
+</body>
+</html>
